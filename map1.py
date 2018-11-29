@@ -21,9 +21,9 @@ fg = folium.FeatureGroup(name="My map")
 
 for lt, ln, el in zip(lat, lon, elev):
     fg.add_child(folium.CircleMarker(location=[lt, ln], radius= 6, popup=str(el)+ " m",
-    fill_color=color_producer(el), color='black', fill_opacity=0.7))
+    fill_color=color_producer(el), color='grey', fill_opacity=0.7))
 
-
+fg.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').read(), style_function=lambda x: {'fillColor':'yellow'}))
 
 
 # for coordinates in [[38.2, -99.1], [39.2, -97.1]]:   #iterating through locations.
